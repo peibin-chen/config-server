@@ -1,0 +1,50 @@
+spring:
+  #服务名称
+  application:
+    name: eureka-order
+  #开启基于http basic的安全认证
+  security:
+    user:
+      name: administrator
+      password: 123456
+      
+#服务端口
+server:
+  port: 8764
+  tomcat:
+    max-threads: 10
+  
+#eureka服务的相关配置 
+eureka:
+  instance:
+    #应用实例主机名
+    hostname: 127.0.0.1
+  client:
+    #注册中心地址
+    service-url:
+      #http://用户名:密码@地址:端口/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    server:
+      eviction-interval-timer-in-ms: 20000 #服务剔除间隔
+      enable-self-preservation: false #关闭自我保护机制
+      
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000 # 连接超时时间
+        readTimeout: 1000   # 读超时时间
+        loggerLevel: full # 日志级别
+        
+ribbon:
+  ReadTimeout: 1000  # 读超时时间
+  ConnectTimeout: 1000 # 连接超时时间
+  
+  
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000  #全局超时时间
