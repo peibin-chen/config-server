@@ -32,12 +32,12 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 1000 # 连接超时时间
-        readTimeout: 1000   # 读超时时间
+        connectTimeout: 5000 # 连接超时时间
+        readTimeout: 5000   # 读超时时间
         loggerLevel: full # 日志级别
         
 ribbon:
-  ReadTimeout: 1000  # 读超时时间
+  ReadTimeout: 5000  # 读超时时间
   ConnectTimeout: 1000 # 连接超时时间
   
   
@@ -47,4 +47,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 1000  #全局超时时间
+            timeoutInMilliseconds: 5000  #全局超时时间
