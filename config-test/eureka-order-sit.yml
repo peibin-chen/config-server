@@ -38,7 +38,7 @@ feign:
         
 ribbon:
   ReadTimeout: 5000  # 读超时时间
-  ConnectTimeout: 1000 # 连接超时时间
+  ConnectTimeout: 5000 # 连接超时时间
   
   
 hystrix:
